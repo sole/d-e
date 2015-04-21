@@ -10,7 +10,7 @@ var replace = require('gulp-replace');
 
 var distPath = path.join(__dirname, 'dist');
 
-gulp.task('build', ['build-js', 'build-html', 'build-css', 'build-img']);
+gulp.task('build', ['build-js', 'build-html', 'build-css', 'build-lib', 'build-img']);
 
 gulp.task('build-js', function() {
 	return gulp.src('src/main.js')
@@ -30,6 +30,11 @@ gulp.task('build-css', function() {
 	.pipe(gulp.dest(path.join(distPath, 'css')));
 });
 
+gulp.task('build-lib', function() {
+	return gulp.src('src/lib/**/*')
+	.pipe(gulp.dest(path.join(distPath, 'lib')));
+});
+
 gulp.task('build-img', function() {
 	return gulp.src('src/img/**/*')
 		.pipe(gulp.dest(path.join(distPath, 'img')));
@@ -39,3 +44,5 @@ gulp.task('build-img', function() {
 gulp.task('watch', function() {
 	gulp.watch('src/**/*', ['build']);
 });
+
+gulp.task('default', ['build', 'watch']);
