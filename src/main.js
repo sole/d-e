@@ -86,7 +86,15 @@ Reveal.initialize({
 			src: 'lib/js/plugin/highlight/highlight.js',
 			async: true,
 			condition: function() { return !!document.querySelector( 'pre code' ); },
-			callback: function() { hljs.initHighlightingOnLoad(); } 
+			callback: function() {
+				// hljs.initHighlightingOnLoad();
+				hljs.configure({
+					tabReplace: '  ',
+					languages: [ 'javascript', 'html', 'markup' ],
+					ignore_illegals: true
+				});
+				hljs.initHighlighting();
+			} 
 		},
 	]
 

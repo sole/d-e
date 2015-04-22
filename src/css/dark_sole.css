@@ -92,16 +92,21 @@ body {
 	content: close-quote;
 }
 
+.reveal pre {
+	text-align: left;
+	margin: 1rem 0;
+}
+
 .reveal pre code {
 	font-family: monospace;
 	font-size: 0.9rem;
 	padding: 1rem;
 	margin: 1rem 0;
-	border-radius: 1rem;
-	background: #222;
-	border: 1px solid #fff;
+	xborder-radius: 1rem;
+	xbackground: #222;
+	xborder: 1px solid #fff;
 	width: auto;
-	text-align: left;
+	xtext-align: left;
 }
 
 .reveal tt {
