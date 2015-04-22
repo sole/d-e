@@ -1,0 +1,8 @@
+.reveal .slides section .fragment.afterstrike.visible {
+	text-decoration: line-through;
+}
+
+.reveal .slides section .fragment.afterstrike.visible.current-fragment {
+	text-decoration: none;
+}
+

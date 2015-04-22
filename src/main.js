@@ -1,6 +1,7 @@
-var Reveal = require('reveal.js');
 
-console.log(Reveal);
+require('./lib/js/head.min.js');
+
+var Reveal = require('reveal.js');
 
 Reveal.initialize({
 
@@ -14,7 +15,7 @@ Reveal.initialize({
     slideNumber: false,
 
     // Push each slide change to the browser history
-    history: false,
+    history: true,
 
     // Enable keyboard shortcuts for navigation
     keyboard: true,
@@ -78,7 +79,17 @@ Reveal.initialize({
     parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
 
     // Parallax background size
-    parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+    parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+		
+	dependencies: [
+		{
+			src: 'lib/js/plugin/highlight/highlight.js',
+			async: true,
+			condition: function() { return !!document.querySelector( 'pre code' ); },
+			callback: function() { hljs.initHighlightingOnLoad(); } 
+		},
+	]
+
 
 
 });

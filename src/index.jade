@@ -1,0 +1,368 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui')
+		title The Disconnected Ensemble: A prelude
+
+		link(rel='stylesheet', type='text/css', href='lib/css/reveal.css')
+		link(rel='stylesheet', type='text/css', href='lib/css/theme/sky.css', id='theme')
+		link(rel='stylesheet', type='text/css', href='lib/css/zenburn.css')
+		link(rel='stylesheet', type='text/css', href='css/sole.css')
+
+		script(src='js/bundle.js', defer)
+
+	body
+
+		div.reveal
+			div.slides
+				section
+					h1 The Disconnected Ensemble
+					h2 (a prelude)
+
+				section
+					h1 Soledad Penadés
+					h2 @supersole
+				
+				section
+					h1 I work at Mozilla
+					h2.fragment You might have heard of Firefox OS
+					h3.fragment.roll-in Available in 29 countries<br />with 14 global operators...
+				section
+					h3 But we weren't completely satisfied
+
+				section
+					h3 Writing a full OS in JS &amp; shipping all those phones...?
+					h2.fragment Maybe we hadn't gone far enough
+
+				section(data-transition='zoom')
+					h1 How do we go further?
+
+				section
+					h1 We brainstormed
+					h2.fragment 50+ groups
+					h3.fragment Lots of ideas!
+
+				section
+					h3 Some were <em>obvious</em>
+					ul
+						li.fragment streamline the build system
+						li.fragment rethink code structure
+						li.fragment deliver more polish
+
+				section
+					h3 Of course,
+					h2.fragment I was more into the riskier ideas
+					ul
+						li.fragment rethink smartphones for less intrusiveness
+						li.fragment offline sharing app updates
+						li.fragment context-aware phones
+						li.fragment ...
+
+				section
+					h3 my favourite?
+					h1.fragment the P2P web
+					blockquote.fragment drop the web, surf local
+
+				section
+					h3 Sending data between devices =<br />a round trip to "the cloud"
+					h2.fragment even when devices are physically close
+					h1.fragment why?
+
+				section
+					h3 Maybe we don't need a cloud
+					h2.fragment Yet it is the business model<br />for many companies
+				section
+					h3 Mozilla has no interest in data-mining users
+					h2.fragment We want <em>you</em> to<br />control your data
+
+				section
+					h3 I saw the p2p web prototypes
+					ul
+						li.fragment file sharing between phones via adhoc networks
+						li.fragment multiplayer emulated games
+						li.fragment device discovery
+						li.fragment ...
+					h2.fragment All in JS!<br /><span class="fragment">Running <em>on phones</em>!</span>
+
+				section
+					h1 This was so exciting!
+
+				section
+					h2 I wanted to tinker
+						span.fragment <br/>and <strong>make cool stuff</strong>
+					h1.fragment immediately
+
+				section
+					h2 ... but <em>what</em> to do?
+
+				section
+					h3 p2p === social
+					p.fragment this would be a challenge for me
+					h3.fragment "JS === toy language"
+					p.fragment "you cannot make anything serious with JS"
+					h3.fragment and of course...
+					p.fragment sole <span class="fragment afterstrike">likes</span> <span class="fragment">loves</span> <span class="fragment">music</span>
+
+				section
+					h3 so what about...
+					h1.fragment Musical toys?
+					ul
+						li.fragment Toys are social
+						li.fragment We don't need internet
+						li.fragment And if done right... 
+							span.fragment you can even keep the toys!
+
+				section
+					h1 I got even <em>more excited</em>!
+
+
+				section
+					p We will form a band
+					h3.fragment We will trascend laptop musicians
+					h2.fragment We will be <strong>The Disconnected Ensemble</strong>
+
+
+				section
+					h2 So how do we make it happen?
+					
+				section
+					h1 The plan
+					ol
+						li.fragment Make musical toys
+						li.fragment Put them on a device
+						li.fragment Make them available to other devices
+						li.fragment Play music! Have fun!
+
+				section
+					h1 1. Making musical toys
+					
+					ul
+						li.fragment Web Audio based audio node
+						li.fragment Web Component based UI                                           
+
+				section
+					h2 Audio nodes
+					h3 Web Audio === modular
+					p TODO: audio graph image
+					p Each toy is an audio node
+
+				section
+					h2 OpenMusic based nodes
+					ul
+						li Constructor takes <tt>AudioContext</tt>
+						li Returns Audio Node
+
+				section
+					h2 Example
+					pre
+						code(data-trim, contenteditable).
+							var Theremin = require('openmusic-theremin');
+							var ac = new AudioContext();
+							var thereNode = Theremin(ac);
+
+							thereNode.start();
+							thereNode.octaves = 3;
+							thereNode.filter.cutoff = 300;
+
+					p.fragment These toys are also usable elsewhere!
+
+				
+				section
+					h2 Web Component UI
+					h3.fragment AudioNodes...
+					ul
+						li.fragment have properties<span class="fragment">, and</span>
+						li.fragment emit events
+					p.fragment we'll use those to build a <strong>Custom Element</strong> representing the node
+
+				section
+					h2 Custom Elements
+					h3 Let you define new types of DOM elements
+
+				section
+					h2 Example
+				
+					pre
+						code(data-trim).
+							var thereUI = document.createElement('openmusic-theremin-ui');
+							document.body.appendChild(thereUI);
+							thereUI.attachTo(thereNode);
+
+				section
+					h2 <tt>attachTo()</tt>
+					ul
+						li.fragment sets up listeners for events on the audio node
+						li.fragment and listeners for events on the custom element
+						li.fragment so everything is in sync
+					
+					h3.fragment Also UI and Audio are decoupled
+					ul
+						li.fragment You can replace this element with a better one
+						li.fragment Or use this element to control a similarly interfaced AudioNode
+
+				section
+					h3 Nothing p2p specific so far
+					h2.fragment The toys work in any modern browser
+
+				
+				section
+					h1 2. Putting the toys in a device
+
+				section
+					h2 A static website
+					p [screenshot]
+					p Nothing p2p specific--works in any browser
+
+				section
+					h1 3. Making toys available
+				
+				section
+					h3 We have a website
+					h2.fragment we just need a server!
+
+				section
+					h3 We can't build a server on a normal browser, but...
+					h2.fragment Firefox OS apps have access to browser superpowers
+					h1.fragment <tt>TCPSocket</tt>
+
+				section
+					h3 Let's bundle 
+						span.fragment <strong>the static website</strong> 
+						span.fragment and a <strong>web server</strong> 
+						span.fragment into a <strong>Firefox OS app</strong> 
+						span.fragment and <strong>install it</strong> on the 
+						span.fragment <strong>master device</strong>
+
+				section
+					h2 <tt>fxos-web-server</tt>
+					pre.fragment
+						code(data-trim).
+							var HTTPServer = require('fxos-web-server');
+							var server = new HTTPServer(80);
+
+
+				section
+					h2 Responses to requests
+					pre.fragment
+						code(data-trim).
+							server.addEventListener('request', function(evt) {
+								var request = evt.request;
+								var response = evt.response;
+								var requestPath = request.path;
+
+								// ... processing request
+							});
+
+				section
+					h3 <tt>fxos-web-server</tt> doesn't have any built-in logic, route or path parsing by default
+					h2 We have to do it ourselves!
+
+				section
+					h2 Route parsing
+					ul
+						li.fragment serve an <strong>index.html</strong> if we request a “directory”
+							span.fragment <br />(i.e. `request.path` ends with “/”)
+						li.fragment serve <strong>static content</strong> if we request a file
+							span.fragment <br />(i.e. `request.path` doesn’t end with “/”)
+
+
+				section
+					h2 Content type
+					h3 extension to content type
+					ul
+						li.fragment 'html' &rarr; 'text/html'
+						li.fragment 'jpg' &rarr; 'image/jpeg'
+
+					p.fragment naive, but works
+
+				
+				section
+					h2 Actually serving
+					pre.fragment
+						code(data-trim).
+							response.headers['Content-Type'] = getContentType(resource);
+							response.sendFile(resource);
+
+
+				section
+					h2 What's my IP?
+					ul
+						li.fragment Settings
+							span.fragment  &rarr; Wi-Fi
+							span.fragment  &rarr; ???
+						li.fragment Firefox OS' <tt>WifiManager</tt>
+
+
+				section
+					h2 WifiManager
+					pre.fragment
+						code(data-trim)
+							snippet
+
+				
+				section
+					h2 Reducing the friction
+					h3.fragment Typing in IP addresses...
+					ul
+						li.fragment is <strong>tedious</strong> in a computer
+						li.fragment <strong>unbearably cumbersome</strong> on a touch device
+
+					p.fragment <strong>NFC</strong> to the rescue!
+
+				
+				section
+					h2 NFC
+					h3.fragment <em>Near Field Communication</em>
+					ul
+						li.fragment Transmit small pieces of data between devices by bumping them
+						li.fragment Firefox OS apps have access to <tt>WebNFC</tt>
+						li.fragment New feature for our web server:
+							span.fragment  <strong>send our URL</strong> when a device is near!
+						li.fragment NFC enabled devices navigate to URLs when they receive one
+						li.fragment No need to type!
+
+				section
+					h2 NFC support
+					ul
+						li.fragment Firefox OS
+						li.fragment Android
+						li.fragment iPhone 6+
+							strong.fragment  could work
+							span.fragment , but Apple keep the chip to themselves for <em>iPay</em>
+					p.fragment Apple... <span class="fragment">¯\_(ツ)_/¯</span>
+
+
+				section
+					h3 it is finally <span class="fragment">time for</span>
+					h1.fragment DEMOS
+
+
+				section
+					h2 The TODO / IDEAS list
+
+					ul
+
+						li.fragment More toys!
+						li.fragment controlling global music parameters from the <em>master</em> device
+							span.fragment  (running a WebSockets server too)
+						li.fragment <tt>ServiceWorkers</tt> and <tt>Cache</tt> so friends keep the toys
+						li.fragment Store &amp; share toy presets
+						li.fragment Automatic discovery of master device with mDNS
+						li.fragment Send touch &amp; input events from clients to master
+							span.fragment , so we can record/edit the <em>jam</em>
+						li.fragment Related: exporting to WAV / MP3
+						li.fragment Automatic network setup using WiFi direct
+						li.fragment Interface with MIDI surfaces using Open Sound Control (uses UDPSockets)
+						li.fragment ???
+
+				section
+					h2 Talk to me if you want to hack on this!
+
+				section
+					h2 Or don't talk to me, but feel free to use bits and pieces of it!
+
+				section
+					h2 github.com/sole/the-p2p-web
+					h3 thankssss
+
