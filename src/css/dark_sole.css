@@ -1,0 +1,111 @@
+@import url(http://fonts.googleapis.com/css?family=Alex+Brush);
+
+/*@import url(http://fonts.googleapis.com/css?family=Oswald:700|Droid+Serif:400,700italic);*/
+
+@import url(http://fonts.googleapis.com/css?family=Fjalla+One|Cantarell:400,400italic,700italic,700);
+
+/* separating in colours and sizing etc so I can build themes more modularly (I hope) */
+body {
+	background: #111;
+	color: #fff;
+}
+
+
+
+/* sizing, typography */
+html {
+	font-size: 2rem;
+}
+
+body {
+	font-family: 'Cantarell', serif;
+	xfont-family: 'Alex Brush';
+}
+
+.reveal h1, .reveal h2, .reveal h3 {
+	font-weight: normal;
+}
+
+.reveal h1 {
+	font-family: 'Fjalla One';
+	font-size: 4rem;
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+}
+
+.reveal h2 {
+	font-size: 1.5rem;
+	font-family: 'Cantarell', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	margin: 1rem 0;
+	font-weight: 700;
+}
+
+.reveal h3 {
+	font-family: 'Cantarell', sans-serif;
+	letter-spacing: -1px;
+	font-weight: 700;
+	margin: 1rem 0;
+	font-size: 1rem;
+	text-transform: uppercase;
+}
+
+.reveal ul {
+	list-style-position: inside;
+	list-style-type: none;
+	margin: 1rem 0;
+}
+
+.reveal ul li:before {
+	content: "- ";
+	font-size: 1rem;
+}
+
+.reveal blockquote {
+	font-family: 'Alex Brush', cursive;
+	font-weight: 400;
+	font-size: 3rem;
+	line-height: 2rem;
+}
+
+.reveal blockquote:before, .reveal blockquote:after {
+	font-size: 4rem;
+	line-height: 2rem;
+}
+
+.reveal blockquote:before {
+	content: open-quote;
+}
+
+.reveal blockquote:after {
+	content: close-quote;
+	margin-left: 0.5rem;
+}
+
+.reveal q:before {
+	content: open-quote;
+}
+
+.reveal q:after {
+	content: close-quote;
+}
+
+.reveal pre code {
+	font-family: monospace;
+	font-size: 0.9rem;
+	padding: 1rem;
+	margin: 1rem 0;
+	border-radius: 1rem;
+	background: #222;
+	border: 1px solid #fff;
+	width: auto;
+	text-align: left;
+}
+
+.reveal tt {
+	font-family: monospace;
+	font-weight: normal;
+	text-transform: none;
+}

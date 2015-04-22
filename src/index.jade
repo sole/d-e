@@ -6,14 +6,15 @@ html
 		title The Disconnected Ensemble: A prelude
 
 		link(rel='stylesheet', type='text/css', href='lib/css/reveal.css')
-		link(rel='stylesheet', type='text/css', href='lib/css/theme/sky.css', id='theme')
+		//link(rel='stylesheet', type='text/css', href='lib/css/theme/sky.css', id='theme')
 		link(rel='stylesheet', type='text/css', href='lib/css/zenburn.css')
+		link(rel='stylesheet', type='text/css', href='css/dark_sole.css')
 		link(rel='stylesheet', type='text/css', href='css/sole.css')
 
 		script(src='js/bundle.js', defer)
 
 	body
-
+		
 		div.reveal
 			div.slides
 				section
@@ -62,10 +63,10 @@ html
 				section
 					h3 my favourite?
 					h1.fragment the P2P web
-					blockquote.fragment drop the web, surf local
+					blockquote.fragment Drop the web,<br/>surf local
 
 				section
-					h3 Sending data between devices =<br />a round trip to "the cloud"
+					h3 Sending data between devices ===<br />a round trip to <q>the cloud</q>
 					h2.fragment even when devices are physically close
 					h1.fragment why?
 
@@ -100,7 +101,7 @@ html
 					h3 p2p === social
 					p.fragment this would be a challenge for me
 					h3.fragment "JS === toy language"
-					p.fragment "you cannot make anything serious with JS"
+					p.fragment this would be another challenge
 					h3.fragment and of course...
 					p.fragment sole <span class="fragment afterstrike">likes</span> <span class="fragment">loves</span> <span class="fragment">music</span>
 
@@ -120,7 +121,7 @@ html
 				section
 					p We will form a band
 					h3.fragment We will trascend laptop musicians
-					h2.fragment We will be <strong>The Disconnected Ensemble</strong>
+					h2.fragment We will be<br/><strong>The Disconnected Ensemble</strong>
 
 
 				section
@@ -185,7 +186,8 @@ html
 				
 					pre
 						code(data-trim).
-							var thereUI = document.createElement('openmusic-theremin-ui');
+							var thereUI =
+							&nbsp;&nbsp;document.createElement('openmusic-theremin-ui');
 							document.body.appendChild(thereUI);
 							thereUI.attachTo(thereNode);
 
@@ -256,23 +258,24 @@ html
 
 				section
 					h3 <tt>fxos-web-server</tt> doesn't have any built-in logic, route or path parsing by default
-					h2 We have to do it ourselves!
+					h2.fragment We have to do it ourselves!
 
 				section
 					h2 Route parsing
 					ul
-						li.fragment serve an <strong>index.html</strong> if we request a “directory”
-							span.fragment <br />(i.e. `request.path` ends with “/”)
+						li.fragment serve an <tt>index.html</tt> file if we request a <q>directory</q>
+							span.fragment <br />(i.e. <tt>request.path</tt> ends with <tt>'/'</tt>)
 						li.fragment serve <strong>static content</strong> if we request a file
-							span.fragment <br />(i.e. `request.path` doesn’t end with “/”)
+							span.fragment <br />(i.e. <tt>request.path</tt> doesn’t end with <tt>'/'</tt>)
 
 
 				section
 					h2 Content type
 					h3 extension to content type
 					ul
-						li.fragment 'html' &rarr; 'text/html'
-						li.fragment 'jpg' &rarr; 'image/jpeg'
+						li.fragment <tt>'html'</tt> &rarr; <tt>'text/html'</tt>
+						li.fragment <tt>'jpg'</tt> &rarr; <tt>'image/jpeg'</tt>
+						li.fragment ...
 
 					p.fragment naive, but works
 
@@ -281,12 +284,14 @@ html
 					h2 Actually serving
 					pre.fragment
 						code(data-trim).
-							response.headers['Content-Type'] = getContentType(resource);
+							response.headers['Content-Type'] =
+								getContentType(resource);
+								
 							response.sendFile(resource);
 
 
 				section
-					h2 What's my IP?
+					h2 What’s my IP?
 					ul
 						li.fragment Settings
 							span.fragment  &rarr; Wi-Fi
@@ -295,10 +300,14 @@ html
 
 
 				section
-					h2 WifiManager
+					h2 <tt>WifiManager</tt>
 					pre.fragment
-						code(data-trim)
-							snippet
+						code(data-trim, class='language-javascript')
+							var wifiManager = navigator.mozWifiManager;
+							var connInfo = wifiManager.connectionInformation;
+							var status = wifiManager.connection.status;
+							var network = wifiManager.connection.network;
+							var ipAddress = connInfo.ipAddress;
 
 				
 				section

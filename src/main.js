@@ -64,7 +64,7 @@ Reveal.initialize({
     previewLinks: false,
 
     // Transition style
-    transition: 'default', // none/fade/slide/convex/concave/zoom
+    transition: 'fade', // none/fade/slide/convex/concave/zoom
 
     // Transition speed
     transitionSpeed: 'default', // default/fast/slow
