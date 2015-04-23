@@ -10,7 +10,26 @@ body {
 	color: #fff;
 }
 
+a {
+	color: red;
+	text-decoration: none;
+}
 
+.reveal .digit, .accent {
+	color: red;
+}
+
+.prefixed {
+	color: #666;
+}
+
+.reveal strong {
+	color: #f00;
+}
+
+.reveal blockquote {
+	color: #f00;
+}
 
 /* sizing, typography */
 html {
@@ -19,7 +38,13 @@ html {
 
 body {
 	font-family: 'Cantarell', serif;
-	xfont-family: 'Alex Brush';
+}
+
+.reveal .slides {
+	text-align: left;
+}
+
+.reveal > .slides > section {
 }
 
 .reveal h1, .reveal h2, .reveal h3 {
@@ -47,19 +72,27 @@ body {
 	font-family: 'Cantarell', sans-serif;
 	letter-spacing: -1px;
 	font-weight: 700;
-	margin: 1rem 0;
+	margin: 1rem 0 0.5rem 0;
 	font-size: 1rem;
 	text-transform: uppercase;
 }
 
+.reveal p {
+	margin-bottom: 1.5rem;
+}
+
 .reveal ul {
-	list-style-position: inside;
-	list-style-type: none;
+	xlist-style-type: none;
 	margin: 1rem 0;
 }
 
+.reveal ol, .reveal ul {
+	list-style-position: inside;
+	line-height: 1.3rem;
+}
+
 .reveal ul li:before {
-	content: "- ";
+	xcontent: "- ";
 	font-size: 1rem;
 }
 
@@ -102,15 +135,22 @@ body {
 	font-size: 0.9rem;
 	padding: 1rem;
 	margin: 1rem 0;
-	xborder-radius: 1rem;
-	xbackground: #222;
-	xborder: 1px solid #fff;
 	width: auto;
-	xtext-align: left;
 }
 
 .reveal tt {
 	font-family: monospace;
 	font-weight: normal;
 	text-transform: none;
+}
+
+.reveal .digit {
+	float: left;
+	font-size: 8.5rem;
+	line-height: 8.5rem;
+	padding-right: 1rem;
+}
+
+.screenshot {
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
 }
