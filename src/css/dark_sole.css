@@ -1,8 +1,49 @@
-@import url(http://fonts.googleapis.com/css?family=Alex+Brush);
+/* @import url(http://fonts.googleapis.com/css?family=Alex+Brush); */
 
-/*@import url(http://fonts.googleapis.com/css?family=Oswald:700|Droid+Serif:400,700italic);*/
+@font-face {
+  font-family: 'Alex Brush';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/Alex_Brush/AlexBrush-Regular.ttf) format('woff');
+}
 
-@import url(http://fonts.googleapis.com/css?family=Fjalla+One|Cantarell:400,400italic,700italic,700);
+/*@import url(http://fonts.googleapis.com/css?family=Fjalla+One|Cantarell:400,400italic,700italic,700);*/
+
+@font-face {
+  font-family: 'Cantarell';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/Cantarell/Cantarell-Regular.ttf) format('woff');
+}
+
+@font-face {
+  font-family: 'Cantarell';
+  font-style: normal;
+  font-weight: 700;
+  src: url(fonts/Cantarell/Cantarell-Bold.ttf) format('woff');
+}
+
+@font-face {
+  font-family: 'Cantarell';
+  font-style: italic;
+  font-weight: 400;
+  src: url(fonts/Cantarell/Cantarell-Oblique.ttf) format('woff');
+}
+
+@font-face {
+  font-family: 'Cantarell';
+  font-style: italic;
+  font-weight: 700;
+  src: url(fonts/Cantarel;/Cantarell-BoldOblique.ttf) format('woff');
+}
+
+@font-face {
+  font-family: 'Fjalla One';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/Fjalla_One/FjallaOne-Regular.ttf) format('woff');
+}
+
 
 /* separating in colours and sizing etc so I can build themes more modularly (I hope) */
 body {
@@ -79,6 +120,11 @@ body {
 
 .reveal p {
 	margin-bottom: 1.5rem;
+}
+
+.reveal .dark h2, .reveal .dark h3, .reveal .dark p {
+	background: rgba(0, 0, 0, 0.5);
+	padding: 3px;
 }
 
 .reveal ul {

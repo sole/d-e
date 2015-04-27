@@ -28,19 +28,19 @@ gulp.task('build-jade', function() {
 });
 
 // Not using this, using build-jade instead
-gulp.task('build-html', function() {
+/*gulp.task('build-html', function() {
 	return gulp.src('src/index.html')
 		.pipe(gulp.dest(distPath));
-});
+});*/
 
 gulp.task('build-css', function() {
 	return gulp.src('src/css/**/*')
-	.pipe(gulp.dest(path.join(distPath, 'css')));
+		.pipe(gulp.dest(path.join(distPath, 'css')));
 });
 
 gulp.task('build-lib', function() {
 	return gulp.src('src/lib/**/*')
-	.pipe(gulp.dest(path.join(distPath, 'lib')));
+		.pipe(gulp.dest(path.join(distPath, 'lib')));
 });
 
 gulp.task('build-img', function() {

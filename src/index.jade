@@ -144,13 +144,14 @@ html
 				section
 					h1 <span class="digit">1</span> Making<br />musical toys
 
-					h2.fragment Two parts process
-					ol
-						li.fragment Web Audio based audio node
-						li.fragment Web Component based UI                                           
+				section
+					h2 Each toy consists of...
+					ul
+						li.fragment a Web Audio based audio node
+						li.fragment a Web Component based UI                                           
 
 				section
-					h2 1.1 Web Audio nodes
+					h2 Web Audio nodes
 					h3.fragment Web Audio is modular
 					img(class='fragment', src='img/modular-routing.png')
 
@@ -171,11 +172,9 @@ html
 							thereNode.octaves = 3;
 							thereNode.filter.cutoff = 300;
 
-					p.fragment These toys are also usable elsewhere!
-
 				
 				section
-					h2 1.2 Web Component UI
+					h2 Web Component UI
 					h3.fragment Since Audio Nodes...
 					ul
 						li.fragment have properties<span class="fragment">, and</span>
@@ -184,7 +183,7 @@ html
 
 				section
 					h2 Custom Elements
-					h3 Let you define <strong>new types</strong> of DOM elements
+					h3.fragment Let you define <strong>new types</strong> of DOM elements
 
 					p.fragment e.g.
 					pre.fragment
@@ -204,7 +203,8 @@ html
 					h3.fragment Also UI and Audio are decoupled
 					ul
 						li.fragment You can replace this element with a better one
-						li.fragment Or use this element to control a similarly interfaced AudioNode
+						li.fragment Or use this element to control a similarly interfaced <tt>AudioNode</tt>
+						li.fragment Or use this <tt>AudioNode</tt> elsewhere
 
 				section
 					h3 Nothing p2p specific so far
@@ -317,10 +317,11 @@ html
 				
 				section
 					h3 Although...
-					h2.fragment Typing in IP addresses
-					ul
-						li.fragment is <strong>tedious</strong> in a computer
-						li.fragment <strong>unbearably cumbersome</strong> on a touch device
+
+				section(data-background='img/typing.gif', class="dark")
+					h2 Typing in IP addresses
+					h3.fragment is <strong>tedious</strong> in a computer
+						span.fragment  and <strong>unbearably cumbersome</strong> on a touch device
 
 					p.fragment How can we reduce this friction?
 
@@ -376,7 +377,7 @@ html
 				section
 					h2 Or don't talk to me, but feel free to use bits and pieces of it!
 
-				section
+				section(data-background='img/catfinity.gif', class='dark')
 					h2 <tt>github.com/sole/the-p2p-web</tt>
-					h3 thankssss
+					h3.fragment thankssss
 
