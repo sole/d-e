@@ -11,6 +11,7 @@
   "author": "",
   "license": "Apache 2",
   "dependencies": {
+    "analytics": "git+https://github.com/sole/analytics.git",
     "gulp": "^3.8.11",
     "gulp-browserify": "^0.5.1",
     "gulp-jade": "^1.0.0",

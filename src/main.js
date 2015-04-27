@@ -1,4 +1,8 @@
 
+// I'm beyond perverse and track hits to the slides.
+var analytics = require('analytics');
+analytics('UA-384699-1');
+
 require('./lib/js/head.min.js');
 
 var Reveal = require('reveal.js');
