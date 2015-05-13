@@ -29,11 +29,11 @@ html
 					h2.fragment You might have heard of <strong>Firefox OS</strong>
 					h3.fragment.roll-in Available in <strong>29</strong> countries<br />with <strong>14</strong> global operators...
 				section
-					h3 But we weren't completely satisfied
+					h3 But we weren’t completely satisfied
 
 				section
 					h3 Writing a full OS in JS and<br /> shipping all those phones...?
-					h2.fragment Maybe we hadn't<br />gone far enough
+					h2.fragment Maybe we hadn’t<br />gone far enough
 
 				section(data-transition='zoom')
 					h1 How do we<br />go <strong>further</strong>?
@@ -63,7 +63,7 @@ html
 				section
 					h3 my favourite?
 					h1.fragment the <strong>P2P</strong> web
-					blockquote.fragment Drop the web,<br/>surf local
+					blockquote.fragment Drop the cloud,<br/>surf local
 
 				section
 					h3 Sending data between devices ===<br />a round trip to <q>the cloud</q>
@@ -71,7 +71,7 @@ html
 					h1.fragment <strong>Why?</strong>
 
 				section
-					h3 Maybe we don't need a cloud
+					h3 Maybe we don’t need a cloud
 					h2.fragment Yet it is the business model<br />for many companies
 				section
 					h3 Mozilla has <strong>no interest</strong> in data-mining users
@@ -110,7 +110,7 @@ html
 					h1.fragment <strong>Musical toys</strong>?
 					ul
 						li.fragment Toys are social
-						li.fragment We don't need internet
+						li.fragment We don’t need internet
 						li.fragment And if done right... 
 							span.fragment you can even keep the toys!
 
@@ -197,9 +197,9 @@ html
 					
 					h3.fragment Also UI and Audio are decoupled
 					ul
-						li.fragment You can replace this element with a better one
-						li.fragment Or use this element to control a similarly interfaced <tt>AudioNode</tt>
-						li.fragment Or use this <tt>AudioNode</tt> elsewhere
+						li.fragment you can replace this element with a better one
+						li.fragment or use this element to control a similarly interfaced <tt>AudioNode</tt>
+						li.fragment or use this <tt>AudioNode</tt> elsewhere
 
 				section
 					h3 Nothing p2p specific so far
@@ -211,8 +211,9 @@ html
 
 				section
 					h2 A static website
-					img(class='fragment', src='img/toypicker_screenshot.png', style='width: 50%; height: auto;')
-					p.fragment Nothing p2p specific either&mdash;works in any browser
+					p.fragment
+						img(src='img/toypicker_screenshot.png', style='width: 50%; height: auto;')
+					p.fragment Again, nothing p2p specific either&mdash;works in any browser
 
 				section
 					h1 <span class="digit">3</span> Making toys available
@@ -222,13 +223,13 @@ html
 					h2.fragment so we need <strong>a server</strong>!
 
 				section
-					h3 We can't build a server on a normal browser
+					h3 We can’t build a server on a normal browser
 					h2.fragment but Firefox OS apps <br /><strong>have superpowers</strong>
 					h1.fragment <tt><span class="prefixed">moz</span>TCPSocket</tt>
 
 				section
-					h3 Let's bundle 
-						span.fragment <strong>the static website</strong> 
+					h3 Let’s bundle 
+						span.fragment the <strong>static website</strong> 
 						span.fragment <br />and a <strong>web server</strong> 
 						span.fragment into a <strong>Firefox OS app</strong> 
 						span.fragment <br />and <strong>install it</strong> on the 
@@ -240,6 +241,7 @@ html
 						code(data-trim).
 							var HTTPServer = require('fxos-web-server');
 							var server = new HTTPServer(80);
+							server.start();
 
 
 				section
@@ -255,7 +257,7 @@ html
 							});
 
 				section
-					h2 <tt>fxos-web-server</tt> doesn't have any<br /><strong>built-in logic</strong>, <strong>route</strong> or <strong>path parsing</strong>
+					h2 <tt>fxos-web-server</tt> doesn’t have any<br /><strong>built-in logic</strong>, <strong>route</strong> or <strong>path parsing</strong>
 					h3.fragment We have to do it ourselves!
 
 				section
@@ -275,7 +277,7 @@ html
 						li.fragment <tt>'jpg'</tt> &rarr; <tt>'image/jpeg'</tt>
 						li.fragment ...
 
-					p.fragment naive, but works
+					p.fragment naive, but works 😏
 
 				
 				section
@@ -295,7 +297,7 @@ html
 							span.fragment  &rarr; Wi-Fi
 							span.fragment  &rarr; Available Networks
 							span.fragment  &rarr; Current network
-						li.fragment ... or Firefox OS' <tt><span class="prefixed">moz</span>WifiManager</tt>
+						li.fragment ... or Firefox OS’ <tt><span class="prefixed">moz</span>WifiManager</tt>
 
 
 				section
@@ -337,10 +339,11 @@ html
 					ul
 						li.fragment Firefox OS
 						li.fragment Android
+						li.fragment Windows Phone
 						li.fragment iPhone 6+
 							strong.fragment  could work
 							span.fragment , but Apple keep the chip to themselves for <em>iPay</em>
-					p.fragment Apple... <span class="fragment">¯\_(ツ)_/¯</span>
+					p.fragment Apple... ¯\_(ツ)_/¯
 
 
 				section
@@ -370,9 +373,17 @@ html
 					h2 Talk to me if you want to<br /><strong>hack</strong> on this!
 
 				section
-					h2 Or don't talk to me, but feel free to use bits and pieces of it!
+					h2 Or <strong>don’t talk to me</strong>, but feel free to <strong>use bits and pieces</strong> of it, or <strong>use it all</strong>!
+
+				section
+					h3 Or in other words,
+					h1.fragment <strong>Do whatever<br />you want</strong>
+					h2.fragment It’s the web!
+
+				section
+					h3 Resources and pointers
+					h2 <tt>github.com/sole/the-p2p-web</tt>
 
 				section(data-background='img/catfinity.gif', class='dark')
-					h2 <tt>github.com/sole/the-p2p-web</tt>
-					h3.fragment thankssss
+					h1 thankssss
 

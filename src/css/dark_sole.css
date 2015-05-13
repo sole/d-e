@@ -69,7 +69,7 @@ a {
 }
 
 .reveal blockquote {
-	color: #f00;
+	color: #fff;
 }
 
 /* sizing, typography */
@@ -119,7 +119,7 @@ body {
 }
 
 .reveal p {
-	margin-bottom: 1.5rem;
+	margin-bottom: 1rem;
 }
 
 .reveal .dark h2, .reveal .dark h3, .reveal .dark p {
@@ -128,7 +128,6 @@ body {
 }
 
 .reveal ul {
-	xlist-style-type: none;
 	margin: 1rem 0;
 }
 
@@ -138,7 +137,6 @@ body {
 }
 
 .reveal ul li:before {
-	xcontent: "- ";
 	font-size: 1rem;
 }
 
@@ -162,7 +160,7 @@ body {
 	content: close-quote;
 	margin-left: 0.5rem;
 }
-
+.reveal q { quotes: '“' '”' 'k' 'g' }
 .reveal q:before {
 	content: open-quote;
 }
