@@ -71,7 +71,7 @@ Reveal.initialize({
     transition: 'fade', // none/fade/slide/convex/concave/zoom
 
     // Transition speed
-    transitionSpeed: 'default', // default/fast/slow
+    transitionSpeed: 'fast', // default/fast/slow
 
     // Transition style for full page slide backgrounds
     backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
@@ -91,7 +91,6 @@ Reveal.initialize({
 			async: true,
 			condition: function() { return !!document.querySelector( 'pre code' ); },
 			callback: function() {
-				// hljs.initHighlightingOnLoad();
 				hljs.configure({
 					tabReplace: '  ',
 					languages: [ 'javascript', 'html', 'markup' ],
@@ -102,6 +101,13 @@ Reveal.initialize({
 		},
 	]
 
+});
 
-
+var handle = document.querySelector('.twitter');
+Reveal.addEventListener('slidechanged', function(ev) {
+	if(ev.indexh != 0) {
+		handle.hidden = false;
+	} else {
+		handle.hidden = true;
+	}
 });
