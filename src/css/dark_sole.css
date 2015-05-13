@@ -81,6 +81,15 @@ body {
 	font-family: 'Cantarell', serif;
 }
 
+.reveal .twitter {
+	position: absolute;
+	top: 0.2rem;
+	right: 0.2rem;
+	z-index: 1000;
+	font-size: 0.8rem;
+	opacity: 0.5;
+}
+
 .reveal .slides {
 	text-align: left;
 }
