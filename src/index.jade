@@ -28,7 +28,7 @@ html
 				section
 					h1 I work at <strong>Mozilla</strong>
 					h2.fragment You might have heard of <strong>Firefox OS</strong>
-					h3.fragment.roll-in Available in <strong>29</strong> countries<br />with <strong>14</strong> global operators...
+					h3.fragment.roll-in Available in <strong>30</strong> countries<br />with <strong>14</strong> global operators...
 				section
 					h3 But we weren’t completely satisfied
 
@@ -41,14 +41,17 @@ html
 
 				section
 					h1 We brainstormed
-					h2.fragment 50+ groups
-					h3.fragment Lots of ideas!
+					h3
+						span.fragment one month
+						span.fragment  / 50+ groups
+						span.fragment  / anything went
+					h2.fragment Lots of ideas!
 
 				section
-					h3 Some were <em>obvious</em>
+					h3 Some were <strong>obvious</strong>
 					ul
 						li.fragment streamline the build system
-						li.fragment rethink code structure
+						li.fragment make it friendlier for beginners
 						li.fragment deliver more polish
 
 				section
@@ -56,10 +59,8 @@ html
 					h2.fragment I was more into
 						strong.fragment <br />the riskier ideas
 					ul
-						li.fragment rethink smartphones for less intrusiveness
+						li.fragment non intrusive, context aware really smart phones
 						li.fragment offline sharing app updates
-						li.fragment context-aware phones
-						li.fragment ...
 
 				section
 					h3 my favourite?
@@ -70,20 +71,22 @@ html
 					h3 Sending data between devices ===<br />a round trip to <q>the cloud</q>
 					h2.fragment even when devices are physically close
 					h1.fragment <strong>This is nonsense</strong>
+					h2.fragment what if the network is down?
+					h3.fragment literally <em>nothing</em>
 
 				section
 					h2 Of course, <strong>the cloud</strong> is<br /><strong>the business model</strong><br />for many companies
+					
 				section
-					h3 Mozilla has <strong>no interest</strong> in data-mining users
+					h3 but Mozilla has <strong>no interest</strong><br/>in data-mining users
 					h2.fragment We want <strong>you</strong> to<br />control <strong>your</strong> data
 
 				section
-					h3 I saw the p2p web prototypes
+					h3 The p2p web prototypes were really <strong>cool</strong>
 					ul
-						li.fragment file sharing between phones via adhoc networks
+						li.fragment file sharing between nearby devices
 						li.fragment multiplayer emulated games
-						li.fragment device discovery
-						li.fragment ...
+						li.fragment app and add-on sharing and discovery
 					h2.fragment All in JavaScript!<br /><span class="fragment">Running <em>on phones</em>!</span>
 
 				section
@@ -117,16 +120,15 @@ html
 				section
 					h1 I got even<br /><strong>more excited</strong>!
 
-
 				section
 					p We will form a band
 					h3.fragment We will trascend laptop musicians
 					h2.fragment We will be
-					h1.fragment <strong>The Disconnected Ensemble</strong>
+					h1.fragment The <br/><strong>Disconnected Ensemble</strong>
 
 
 				section
-					h2 So <strong>how</strong> do we make it happen?
+					h2 But <strong>how</strong> do we make it happen?
 					
 				section
 					h1 The plan
@@ -140,7 +142,7 @@ html
 					h1 <span class="digit">1</span> Making<br />musical toys
 
 				section
-					h2 Each toy consists of...
+					h2 Each toy will consist of...
 					ul
 						li.fragment a Web Audio based audio node
 						li.fragment a Web Component based UI                                           
@@ -170,11 +172,8 @@ html
 				
 				section
 					h2 Web Component UI
-					h3.fragment Since Audio Nodes...
-					ul
-						li.fragment have properties<span class="fragment">, and</span>
-						li.fragment emit events
-					p.fragment we'll use those to build a <strong>Custom Element</strong> representing the node
+					h3.fragment One toy = one <strong>Custom Element</strong>
+
 
 				section
 					h2 Custom Elements
@@ -194,6 +193,11 @@ html
 						li.fragment sets up listeners for events on the audio node
 						li.fragment and listeners for events on the custom element
 						li.fragment so everything is in sync
+					p.fragment
+						span.box Audio Node
+						span.arrow &lrarr;
+						span.box Custom Element
+						span <br/><br />
 					
 					h3.fragment Also UI and Audio are decoupled
 					ul
@@ -226,17 +230,24 @@ html
 					h3 We can’t build a server on a normal browser
 					h2.fragment but Firefox OS apps <br /><strong>have superpowers</strong>
 					h1.fragment <tt><span class="prefixed">moz</span>TCPSocket</tt>
+					p.fragment (the HTTP protocol is built on top of the TCP layer)
 
 				section
-					h3 Let’s bundle 
-						span.fragment the <strong>static website</strong> 
+					h1 A <strong>Firefox OS</strong> app = 
+					h2.fragment HTML + CSS + JS + manifest.webapp
+
+				section
+					h3 So what about we...
+					h2
+						span.fragment bundle the <strong>static website</strong> 
 						span.fragment <br />and a <strong>web server</strong> 
-						span.fragment into a <strong>Firefox OS app</strong> 
-						span.fragment <br />and <strong>install it</strong> on the 
-						span.fragment <strong>master device</strong>
+						span.fragment <br />into a <strong>Firefox OS app</strong> 
+						span.fragment <br />and <strong>install it</strong> 
+						span.fragment <br />on the <strong>master device</strong>?
 
 				section
-					h2 <tt>fxos-web-server</tt>
+					h3 but <strong>which</strong> web server?
+					h2.fragment <tt>fxos-web-server</tt>
 					pre.fragment
 						code(data-trim).
 							var HTTPServer = require('fxos-web-server');
@@ -253,7 +264,7 @@ html
 								var response = evt.response;
 								var requestPath = request.path;
 
-								// ... processing request
+								// ... process request
 							});
 
 				section
@@ -262,16 +273,18 @@ html
 
 				section
 					h2 Route parsing
+					h3.fragment <strong>Which</strong> file to serve
 					ul
-						li.fragment serve the contents of <tt>index.html</tt> if we request a <q>directory</q>
-							span.fragment <br />(i.e. <tt>request.path</tt> ends with <tt>'/'</tt>)
-						li.fragment serve the contents of a resource if we request a file
-							span.fragment <br />(i.e. <tt>request.path</tt> doesn’t end with <tt>'/'</tt>)
+						li.fragment if <tt>request.path</tt> ends with <tt>'/'</tt>
+							span.fragment ,<br />serve the contents of <tt>index.html</tt>
+						li.fragment if <tt>request.path</tt> doesn’t end with <tt>'/'</tt>
+							span.fragment ,<br />serve the contents of a file
 
 
 				section
 					h2 Content type
-					h3.fragment extension to content type
+					h3.fragment <strong>What</strong> are we serving
+					p.fragment Extension to content type
 					ul
 						li.fragment <tt>'html'</tt> &rarr; <tt>'text/html'</tt>
 						li.fragment <tt>'jpg'</tt> &rarr; <tt>'image/jpeg'</tt>
@@ -291,13 +304,15 @@ html
 
 
 				section
-					h2 What’s my IP?
+					h3 So we have a web server on a phone
+					h2.fragment What’s its <strong>IP address</strong>?
 					ul
 						li.fragment Settings
 							span.fragment  &rarr; Wi-Fi
 							span.fragment  &rarr; Available Networks
 							span.fragment  &rarr; Current network
-						li.fragment ... or Firefox OS’ <tt><span class="prefixed">moz</span>WifiManager</tt>
+							span.fragment  &rarr; IP address
+						li.fragment ... or <span class="fragment">Firefox OS’ <tt><span class="prefixed">moz</span>WifiManager</tt></span>
 
 
 				section
@@ -310,6 +325,9 @@ html
 							var network = wifiManager.connection.network;
 							var ipAddress = connInfo.ipAddress;
 
+				section
+					img(src='img/server_screenshot.png', style='height: 700px; width: auto;')
+
 				section(data-background='img/toypicker_served.jpg')
 				
 				section
@@ -317,10 +335,9 @@ html
 
 				section(data-background='img/typing.gif', class="dark")
 					h2 Typing in IP addresses
-					h3.fragment is <strong>tedious</strong> in a computer
-						span.fragment  and <strong>unbearably cumbersome</strong> on a touch device
+					h3.fragment is <strong>tedious</strong> in a computer and <strong>unbearably cumbersome</strong> on a touch device
 
-					p.fragment How can we reduce this friction?
+					p.fragment How can we reduce this <strong>friction</strong>?
 
 				
 				section
@@ -330,10 +347,14 @@ html
 						li.fragment Transmit small pieces of data between devices
 						li.fragment NFC enabled devices navigate to URLs when they receive one
 						li.fragment Firefox OS apps have access to <tt><span class="prefixed">moz</span>WebNFC</tt>
-						li.fragment New feature for our web server:
-							span.fragment  <br /><strong>send our URL</strong> when a device is near!
+						li.fragment New feature for our master device:
+							span.fragment  <br /><strong>send our URL</strong> when another device is near!
 						li.fragment No need to type!
 
+				section
+					div.fakephone
+						img(src='img/server_screenshot.png')
+					
 				section
 					h2 NFC support
 					ul
@@ -347,12 +368,9 @@ html
 
 
 				section
-					h3 it is finally 
-					h2.fragment time for
-					h1.fragment <strong>DEMOS</strong>
+					h1 <span class="digit">4</span> Playing music! Having fun!
 
-
-				section
+				// section
 					h2 The TODO / IDEAS list
 
 					ul
@@ -370,7 +388,14 @@ html
 						li.fragment ???
 
 				section
-					h2 Talk to me if you want to<br /><strong>hack</strong> on this!
+					h2 This is <strong>work in progress</strong>
+					
+				section
+					h2 Talk to me if you want to<br /><strong>contribute</strong>!
+					
+				section
+					h2 It doesn’t matter if you are not a musician
+					h3.fragment There is always <strong>something</strong> you can do
 
 				section
 					h2 Or <strong>don’t talk to me</strong>, but feel free to <strong>use bits and pieces</strong> of it, or <strong>use it all</strong>!

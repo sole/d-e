@@ -207,3 +207,36 @@ body {
 .screenshot {
 	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
 }
+
+.reveal .box {
+	display: inline-box;
+	border: 1px solid white;
+	padding: 0.25rem;
+}
+
+.reveal .arrow {
+	padding: 0.25rem;
+}
+
+.reveal .fakephone {
+	display: inline-flex;
+}
+
+.reveal .fakephone:after {
+	content: ")))))";
+	display: inline-block;
+	float: none;
+	line-height: 600px;
+	font-size: 200px;
+	padding-left: 1rem;
+}
+
+.reveal .fakephone img {
+	border: 20px solid #666;
+	border-bottom-width: 40px;
+	border-radius: 20px;
+	height: 600px;
+	width: auto;
+}
+
+
